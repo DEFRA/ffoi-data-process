@@ -1,0 +1,32 @@
+{
+  "name": "ffoi-data-process",
+  "version": "0.0.1",
+  "description": "Serverless (AWS Lambda) project for FFOI forecast data processing",
+  "scripts": {
+    "deploy": "npm run validate-config && sls deploy -v --force",
+    "lint": "standard",
+    "unit-test": "lab test -v -c --coverage-exclude lib/helpers -r console -o stdout -r html -o test/output.html -m 5000",
+    "test": "npm run lint && npm run unit-test",
+    "validate-config": "node ./config/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DEFRA/ffoi-data-process.git"
+  },
+  "author": "The Environment Agency",
+  "license": "OGL",
+  "bugs": {
+    "url": "https://github.com/DEFRA/ffoi-data-process/issues"
+  },
+  "homepage": "https://github.com/DEFRA/ffoi-data-process#readme",
+  "devDependencies": {
+    "code": "4.1.0",
+    "lab": "14.1.1",
+    "serverless": "1.24.1",
+    "standard": "10.0.3"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.156.0",
+    "xml2js": "^0.4.19"
+  }
+}
