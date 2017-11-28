@@ -14,3 +14,9 @@ This is a serverless project to provide the processing of FFOI forecast files fo
 ## Deployment
 
 `npm run deploy`
+
+## Unit tests and linting
+`npm run pre-deployment-test`
+
+## Feature testing (integration)
+`npm run post-deployment-test`

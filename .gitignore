@@ -5,6 +5,6 @@ jspm_packages
 # Serverless directories
 .serverless
 
-test/output.html
+test/output*
 
 config/config.js
