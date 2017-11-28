@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "aws-sdk": "2.156.0",
+    "proxy-agent": "2.1.0",
     "xml2js": "0.4.19"
   }
 }

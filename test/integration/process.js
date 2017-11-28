@@ -4,9 +4,7 @@ const Lab = require('lab')
 const lab = exports.lab = Lab.script()
 const fs = require('fs')
 const Code = require('code')
-// const testProcess = require('../../lib/functions/process').process
 let s3 = require('../../lib/s3')
-// const event = require('../event.json')
 const xml = fs.readFileSync('./test/data/test.XML')
 
 lab.experiment('Test Lambda functionality post deployment', () => {
