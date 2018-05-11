@@ -1,6 +1,6 @@
 {
   "name": "ffoi-data-process",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Serverless (AWS Lambda) project for FFOI forecast data processing",
   "scripts": {
     "deploy": "sls deploy -v --force",
@@ -21,14 +21,14 @@
   },
   "homepage": "https://github.com/DEFRA/ffoi-data-process#readme",
   "devDependencies": {
-    "code": "4.1.0",
-    "lab": "14.1.1",
-    "serverless": "1.24.1",
-    "standard": "10.0.3"
+    "code": "5.2.0",
+    "lab": "15.4.4",
+    "serverless": "1.27.2",
+    "standard": "11.0.1"
   },
   "dependencies": {
-    "aws-sdk": "2.156.0",
-    "proxy-agent": "2.1.0",
+    "aws-sdk": "2.238.1",
+    "proxy-agent": "3.0.0",
     "xml2js": "0.4.19"
   }
 }

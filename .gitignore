@@ -8,3 +8,6 @@ jspm_packages
 test/output*
 
 config/config.js
+
+package-lock.json
+
