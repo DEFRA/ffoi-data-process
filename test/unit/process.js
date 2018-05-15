@@ -12,26 +12,28 @@ let file = {
   Body: xml
 }
 
-lab.experiment('processs', () => {
-  lab.before((done) => {
-    s3.getObject = (params, callback) => {
-      callback(null, file)
+lab.experiment('process', () => {
+  lab.before(async () => {
+    s3.getObject = (params) => {
+      return new Promise((resolve, reject) => {
+        resolve(file)
+      })
     }
 
-    s3.putObject = (params, callback) => {
-      callback(null, { ETag: '"47f693afd590c0b546bc052f6cfb4b71"' })
+    s3.putObject = (params) => {
+      return new Promise((resolve, reject) => {
+        resolve({ ETag: '"47f693afd590c0b546bc052f6cfb4b71"' })
+      })
     }
-
-    done()
   })
 
-  lab.test('process', (done) => {
-    process(event, { succeed: () => {
-      done()
-    },
+  lab.test('process', async () => {
+    process(event, {
+      succeed: () => {
+      },
       fail: (err) => {
         Code.expect(err).to.be.null()
-        done()
-      }})
+      }
+    })
   })
 })
