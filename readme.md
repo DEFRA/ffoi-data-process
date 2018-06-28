@@ -1,8 +1,8 @@
-# ffoi-data-process
+# flood-data-process
 
 ## synopsis
 
-This is a serverless project to provide the processing of FFOI forecast files for the Live flood warnings application
+This is a serverless project to provide the processing of FFOI forecast and RLOI files for the Live flood warnings application
 
 ## Installing
 

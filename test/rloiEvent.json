@@ -1,0 +1,14 @@
+{
+  "Records": [
+    {
+      "s3": {
+        "bucket": {
+          "name": "devlfw"
+        },
+        "object": {
+          "key": "fwfidata/rloi/THTSTHFS20180823070309020.XML"
+        }
+      }
+    }
+  ]
+}

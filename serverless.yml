@@ -10,10 +10,17 @@ provider:
     name: ${env:FFOI_SLS_BUCKET}
   environment:
     stage: ${env:FFOI_TARGET_ENV_NAME}
+    dbConnection: ${env:FFOI_DB_CONNECTION}
 package:
  exclude:
    - test
 functions:
   process:
     handler: lib/functions/process.process
-    timeout: 30
+    timeout: 60
+  rloiProcess:
+    handler: lib/functions/rloiProcess.process
+    timeout: 60
+  rloiStationProcess:
+    handler: lib/functions/rloiStationProcess.process
+    timeout: 120

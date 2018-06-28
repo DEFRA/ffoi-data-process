@@ -3,19 +3,23 @@
 const Lab = require('lab')
 const lab = exports.lab = Lab.script()
 const fs = require('fs')
-const process = require('../../lib/functions/process').process
+const process = require('../../lib/functions/rloiProcess').process
 let s3 = require('../../lib/s3')
-const event = require('../event.json')
-const xml = fs.readFileSync('./test/data/test.XML')
+const event = require('../rloiEvent.json')
+const xml = fs.readFileSync('./test/data/rloiTest.XML')
 let file = {
   Body: xml
 }
 
-lab.experiment('FFOI processing', () => {
+lab.experiment('RLOI processing', () => {
   lab.before(async () => {
     s3.getObject = (params) => {
       return new Promise((resolve, reject) => {
-        resolve(file)
+        if (params.Key === event.Records[0].s3.object.key) {
+          resolve(file)
+        } else {
+          reject(new Error())
+        }
       })
     }
 
@@ -26,7 +30,7 @@ lab.experiment('FFOI processing', () => {
     }
   })
 
-  lab.test('FFOI process', async () => {
+  lab.test('RLOI process', async () => {
     try {
       await process(event)
     } catch (err) {
