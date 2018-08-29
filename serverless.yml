@@ -6,11 +6,18 @@ provider:
   role: ${env:FFOI_SLS_LAMBA_ROLE}
   stage: ${env:FFOI_TARGET_ENV_NAME}
   region: ${env:FFOI_TARGET_REGION}
+  profile: ${env:FFOI_AWS_PROFILE}
   deploymentBucket:
     name: ${env:FFOI_SLS_BUCKET}
   environment:
     stage: ${env:FFOI_TARGET_ENV_NAME}
-    dbConnection: ${env:FFOI_DB_CONNECTION}
+    FFOI_DB_CONNECTION: ${env:FFOI_DB_CONNECTION}
+  vpc:
+    securityGroupIds:
+      - ${env:FFOI_VPN_SECURITY_GROUP}
+    subnetIds:
+      - ${env:FFOI_SUBNET_1}
+      - ${env:FFOI_SUBNET_2}
 package:
  exclude:
    - test
@@ -20,7 +27,8 @@ functions:
     timeout: 60
   rloiProcess:
     handler: lib/functions/rloiProcess.process
-    timeout: 60
+    timeout: 120
+    reservedConcurrency: 50
   rloiStationProcess:
     handler: lib/functions/rloiStationProcess.process
     timeout: 120
